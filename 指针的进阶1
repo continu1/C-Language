@@ -1,0 +1,188 @@
+#include <stdio.h>
+
+//void test(int arr[])
+//{
+//	printf("%d\n",sizeof(arr)/sizeof(arr[0]));
+//}
+//int main()
+//{
+//	int arr[10] = {0};
+//	test(arr);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char ch = 'w';
+//	char* pc = &ch;
+//	*pc = 'r';
+//	printf("ch = %c\n",ch);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char arr[] = "abcdef";//"abcdef"是一个常量字符串
+//	char* pc = arr;
+//	printf("%s\n",arr);
+//	printf("%s\n",pc);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char* p = "abcdef";//"abcdef"是一个常量字符串
+//	printf("%c\n",*p);
+//	printf("%s\n",*p);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char arr1[] = "qwert";
+//	char arr2[] = "qwert";
+//	char* p1 = "abcdef";
+//	char* p2 = "abcdef";
+//	if(arr1 == arr2)
+//		printf("==\n");
+//	else
+//		printf("!=\n");
+//	if(p1 == p2)
+//		printf("==\n");
+//	else
+//		printf("!=\n");
+//	return 0;
+//}
+
+//指针数组----用来存放指针的数组
+//int main()
+//{
+//	int arr[10] = {0};//整型数组
+//	char ch[5] = {0};//字符数组
+//	int* parr[4];//存放整型指针的数组
+//	char* pch[5];//存放字符类型的数组
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int c = 30;
+//	int d = 40;
+//	int* arr[4] = {&a,&b,&c,&d};
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i=0,j;
+//	int arr1[] = {1,2,3,4,5};
+//	int arr2[] = {2,3,4,5,6};
+//	int arr3[] = {3,4,5,6,7};
+//	int* parr[] = {arr1,arr2,arr3};
+//	for(i=0;i<3;i++)
+//	{
+//		j=0;
+//		for(j=0;j<5;j++)
+//		{
+//			//printf("%d ",*(parr[i]+j));
+//			printf("%p ",parr[i]+j);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//数组指针----指针
+//int main()
+//{	
+//	int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+//	//arr-首元素地址
+//	//&arr[0]-首元素地址
+//	//&arr-数组的地址
+//	
+//	int* p = NULL;//整型指针----指向整型的指针----可以存放整型的地址
+//	char* pc = NULL;//字符指针----指向字符的指针----可以存放字符的地址
+//	int(*p)[10] = &arr;//数组指针----指向数组的指针----可以存放数组的地址
+//	return 0;
+//}
+
+//int main()
+//{
+//	char* arr[5];
+//	char* (*pa) [5] = &arr;
+//
+//	int arr2[10] = {0};
+//	int (*pa2) [10] = &arr2;
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a,b;
+//	int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+//	int (*pa) [10] = &arr;
+//	for(a=0;a<10;a++)
+//	{
+//		printf("%d ",(*pa)[a]);
+//	}
+//	printf("\n");
+//	for(a=0;a<10;a++)
+//	{
+//		printf("%d ",*(*pa+a));
+//	}
+//	return 0;
+//}
+
+
+//void printf1(int arr[3][5],int x,int y)//参数是数组的形式
+//{
+//	int i,j;
+//	for(i=0;i<x;i++)
+//	{
+//		for(j=0;j<y;j++)
+//		{
+//			printf("%d ",arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//}
+//void printf2(int(*p)[5],int x,int y)//参数是指针的形式
+//{
+//	int i,j;
+//	for(i=0;i<x;i++)
+//	{
+//		for(j=0;j<y;j++)
+//		{
+//			printf("%d ",*(*(p+i)+j));//注意:(p+i)是某一行的地址,而*(p+i)得到的是那一行的首元素地址,以为p是行地址(存储某一行的地址)
+//			//printf("%d ",(*(p+i))[j]);
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int arr[3][5] = {{1,2,3,4,5},{2,3,4,5,6},{3,4,5,6,7}};
+//	printf1(arr,3,5);//arr---首元素地址---arr[0][0],arr[1][0],arr[2][0];
+//	printf("\n");
+//	printf2(arr,3,5);
+//	return 0;
+//}
+
+int main()
+{
+	int a = 0;
+	int n = 0;
+	scanf("%d,%d",&a,&n);
+	int sum = 0;
+	int i = 0;
+	int ret = 0;
+	for(i=0;i<n;i++)
+	{
+		ret = ret * 10 + a;
+		sum += ret;
+	}
+	printf("%d\n",sum);
+	return 0;
+}
