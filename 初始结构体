@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+struct stu
+{
+	char name[5];
+	int age;
+	int tall;
+}a,b;
+
+void print(struct stu ha,struct stu he)
+{
+	printf("%s\n",ha.name);
+	printf("%d\n",ha.age);
+	printf("%d\n",ha.tall);
+
+	printf("%s\n",he.name);
+	printf("%d\n",he.age);
+	printf("%d\n",he.tall);
+}
+int main()
+{
+	struct stu a = {"haha",20,136};
+	struct stu b = {"hehe",30,666};
+	print(a,b);
+	return 0;
+}
