@@ -1,0 +1,301 @@
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+
+//strlen---计算字符串长度:
+//int main()
+//{
+//	int len1 = strlen("abcdef");
+//	char arr[] = {'a','b','c','d','e','f'};
+//	int len2 = strlen(arr);
+//	printf("%d\n%d\n",len1,len2);
+//	return 0;
+//}
+
+
+////strlen的返回类型是size_t,size_t == unsigned int 
+//int main()
+//{
+//	if(strlen("abc") - strlen("abcdef") > 0)
+//	{
+//		printf("hahah\n");
+//	}
+//	else
+//	{
+//		printf("heheh\n");
+//	}
+//	return 0;
+//}
+
+
+//模拟实现strlen
+//1.计数器的方法
+//2.递归
+//3.指针-指针
+
+////法一:
+//int my_strlen(const char* str)
+//{
+//	int count = 0;
+//	assert(str != NULL);
+//	while(*str != '\0')
+//	{
+//		str++;
+//		count++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	int ret = my_strlen(arr);
+//	printf("%d\n",ret);
+//	return 0;
+//}
+
+
+////法二:
+//int my_strlen(const char *str)
+//{
+//	if(*str == '\0')
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		str++;
+//		return 1+my_strlen(str);
+//	}
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	assert(arr != NULL);
+//	printf("%d\n",my_strlen(arr));
+//	return 0;
+//}
+
+
+//法三:
+//int my_strlen(const char* str)
+//{
+//	char* tmp = (char*)str;
+//	assert(str != NULL);
+//	while(*str != '\0')
+//	{
+//		str++;
+//	}
+//	return str-tmp;
+//}
+//int main()
+//{
+//	char arr[] = "aqzdfcvgbhkljnjf";
+//	printf("%d\n",my_strlen(arr));
+//	return 0;
+//}
+
+
+//strcpy---字符串拷贝:
+//int main()
+//{
+//	char arr1[] = "abcdefghi";
+//	char arr2[] = "bit";
+//	strcpy(arr1,arr2);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//模拟实现strcpy
+//void my_strcpy(char* dest,char* src)
+//{
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	while(*src != '\0')
+//	{
+//		*dest = *src;
+//		dest++;
+//		src++;
+//	}
+//	*(dest++) = '\0';
+//}
+//int main()
+//{
+//	char arr1[] = "abcdefghi";
+//	//char arr2[] = "bit";
+//  char arr2[] = {'b','i','t'}//err   源字符串里没有'\0'
+//  char *arr2 = "abced";//err   arr2指向的是常量字符串
+//	my_strcpy(arr1,arr2);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//精简版:
+//void my_strcpy(char* dest,const char* src)
+//{
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	//拷贝src指向的字符串到dest指向的空间,包含'\0'
+//	while(*dest++ = *src++)
+//	{
+//		;
+//	}
+//}
+//int main()
+//{
+//	char arr1[] = "abcdefghi";
+//	char arr2[] = "bit";
+//	my_strcpy(arr1,arr2);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//strcat---字符串追加
+//int main()
+//{
+//	char arr1[30] = "hello ";
+//	char arr2[] = "world";
+//	strcat(arr1,arr2);
+//	printf("%s",arr1);
+//	return 0;
+//}
+
+
+//模拟实现strcat
+//void my_strcat(char* dest,const char* src)
+//{
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	while(*dest != '\0')
+//	{
+//		dest++;
+//	}
+//	while(*dest++ = *src++)
+//	{
+//		;
+//	}
+//}
+//int main()
+//{
+//	char arr1[30] = "hello ";
+//	char arr2[] = "world!";
+//	my_strcat(arr1,arr2);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//strcmp---字符串比较
+//比较的是Asall码值的大小
+//int main()
+//{
+//	char* p1 = "beautiful world";
+//	char* p2 = "hello 2022 year!";
+//	int ret = strcmp(p1,p2);
+//	printf("%d\n",ret);
+//	return 0;
+//}
+
+
+//模拟实现strcmp
+//int my_strcmp(const char* str1,const char* str2)
+//{
+//	assert(str1 != NULL);
+//	assert(str2 != NULL);
+//	while(*str1 == *str2)
+//	{
+//		if(*str1 == '\0')
+//		{
+//			return 0;
+//		}
+//		str1++;
+//		str2++;
+//	}
+//	if(*str1 > *str2)
+//		return 1;
+//	else
+//		return -1;
+//}
+//int main()
+//{
+//	char* p1 = "abcdef";
+//	char* p2 = "abcdhi";
+//	int ret = my_strcmp(p1,p2);
+//	printf("ret = %d\n",ret);
+//	return 0;
+//}
+
+
+//精简版
+//int my_strcmp(const char* str1,const char* str2)
+//{
+//	assert(str1 != NULL);
+//	assert(str2 != NULL);
+//	while(*str1 == *str2)
+//	{
+//		if(*str1 == '\0')
+//		{
+//			return 0;
+//		}
+//		str1++;
+//		str2++;
+//	}
+//	return (*str1 - *str2);
+//}
+//int main()
+//{
+//	char* p1 = "abcdef";
+//	char* p2 = "abcdhi";
+//	int ret = my_strcmp(p1,p2);
+//	printf("ret = %d\n",ret);
+//	return 0;
+//}
+
+
+//strncpy---字符串拷贝
+//int main()
+//{
+//	char arr1[6] = "abqwc";
+//	char arr2[] = "hello world";
+//	char arr3[] = "ab";
+//	strncpy(arr1,arr2,4);
+//	strncpy(arr1,arr3,6);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//模拟实现strncpy
+//void my_strncpy(char* str1,char* str2,int k)
+//{
+//	int i = 0;
+//	while(k>0)
+//	{
+//		*(str1+i) = *(str2+i);
+//		i++;
+//		k--;
+//	}
+//}
+//int main()
+//{
+//	char arr1[10] = "asdfghk";
+//	char arr2[] = "hello";
+//	int k;
+//	scanf("%d",&k);
+//	my_strncpy(arr1,arr2,k);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//strncat
+int main()
+{
+	char arr1[30] = "hello \0xxxxxxxxxxxxxxxxxx";
+	char arr2[] = "world";
+	strncat(arr1,arr2,8);
+	printf("%s\n",arr1);
+	return 0; 
+}
