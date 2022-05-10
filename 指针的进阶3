@@ -1,0 +1,154 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//回调函数:
+//  回调函数就是一个通过函数指针调用的函数。如果你把函数的指针(地址)作为参数传递给另一个函数
+//当这个指针被用来调用其所指向得函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接
+//调用，而是在特定的事件或发生时由另外的一方调用的，用于对该事件或条件进行响应。
+
+////例一:
+//void print(char*str)
+//{
+//	printf("world\n");
+//}
+//void test(void (*p)(char*))
+//{
+//	printf("hello ");
+//	p("bit");
+//}
+//int main()
+//{
+//	test(print);
+//	return 0;
+//}
+
+
+////例二:
+////冒泡排序函数(没有运用回调函数)
+////原理:两两相邻的元素比较大小(从左到右),比较完一次后大的元素在右边,一轮后最大的元素在最右边,再进行第二轮比较,直到进行完第(sz-1)轮比较;
+// void BubbleSort(int arr[],int sz)
+// {
+//	 int i,j;
+//	 for(i=0;i<sz-1;i++)
+//	 {
+//		 //一趟冒泡排序
+//		 j = 0;
+//		 for(j=0;j<sz-1-i;j++)
+//		 {
+//			 if(arr[j]>arr[j+1])
+//			 {
+//				 int tmp = arr[j];
+//				 arr[j] = arr[j+1];
+//				 arr[j+1] = tmp;
+//			 }
+//		 }
+//	 }
+// }
+//int main()
+//{
+//	int i;
+//	int arr[10] = {1,3,5,7,9,2,4,6,8,0};
+//	int sz = sizeof(arr)/sizeof(arr[0]);
+//	BubbleSort(arr,sz);
+//	for(i=0;i<sz;i++)
+//	{
+//		printf("%d ",arr[i]);
+//	}
+//	return 0;
+//}
+
+
+
+//例三
+//qsort函数 --- 可以排序任意类型的数据
+//回调函数的应用:
+//struct stu
+//{
+//	char name[20];
+//	int age;
+//};
+//int cmp_int(const void *e1,const void *e2)//void* 类型的指针可以接收任意类型的地址,不能进行解引用操作,不能进行加减整数的操作
+//{
+//	//比较两个整型值的大小
+//	return *(int*)e1 - *(int*)e2;//强制类型转换
+//}
+//int tmp_float(const void *e1,const void *e2)
+//{
+//	//比较两个浮点型数字的大小
+//	if(*(float*)e1 == *(float*)e2)
+//		return 0;
+//	else if(*(float*)e1 > *(float*)e2)
+//		return 1;
+//	else
+//		return -1;
+//}
+//int tmp_stu_by_age(const void *e1,const void *e2)
+//{
+//	return ((struct stu*)e1)->age - ((struct stu*)e2)->age;
+//}
+//int tmp_stu_by_name(const void *e1,const void *e2)
+//{
+//	//比较名字就是比较字符串
+//	//字符串不能直接用 > = < 比较,应用strcmp函数
+//	return strcmp(((struct stu*)e1)->name,((struct stu*)e2)->name);
+//}
+//
+//void test1()
+//{
+//	int i;
+//	int arr[10] = {1,3,5,7,9,2,4,6,8,0};
+//	int sz = sizeof(arr)/sizeof(arr[0]);
+//	qsort(arr,sz,sizeof(arr[0]),cmp_int);
+//	for(i=0;i<sz;i++)
+//	{
+//		printf("%d ",arr[i]);
+//	}
+//	printf("\n");
+//}
+//void test2()
+//{
+//	int sz,i;
+//	float f[10] = {9.0,3.2,6.4,8.6,6.9,9.8,7.1,3.2,1.6,2.6};
+//	sz = sizeof(f)/sizeof(f[0]);
+//	qsort(f,sz,sizeof(f[0]),tmp_float);
+//	for(i=0;i<sz;i++)
+//	{
+//		printf("%f\n",f[i]);
+//	}
+//}
+//void test3()
+//{
+//	int sz,i;
+//	struct stu s[3] = {{"张三",2},{"李四",30},{"王五",10}};//结构体数组
+//	sz = sizeof(s)/sizeof(s[0]);
+//	qsort(s,sz,sizeof(s[0]),tmp_stu_by_age);
+//	qsort(s,sz,sizeof(s[0]),tmp_stu_by_name);
+//}
+//int main()
+//{
+//	test1();
+//	test2();
+//	test3();
+//	return 0;
+//}
+
+
+////指向函数指针数组的指针
+////例一:
+//int add(int x,int y)
+//{
+//	return x+y;
+//}
+//int main()
+//{
+//	int arr[10] = {0};
+//	int (*p)[10] = &arr;//取出数组的地址,用数组指针
+//
+//	int(*pf)(int,int);//函数指针
+//	int (*pfArr[4])(int,int) = {add};//pfArr是一个数组---函数指针数组
+//	int (*(*ppfArr)[4])(int,int) = &pfArr;
+//	//ppfArr是一个指向函数指针数组的指针
+//	//ppfArr是一个数组指针,指针指向的数组有4个元素
+//	//指向的数组的每个元素的类型是一个函数指针,函数指针的类型:int(*)(int,int)
+//	return 0;
+//}
