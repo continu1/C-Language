@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <assert.h>
+/*
+//高质量代码:
+char* my_strcpy(char* dest,const char* src)
+{
+	char* ret = dest;
+	assert(dest != NULL);
+	assert(src != NULL);
+	//把src指向得字符串拷贝到dest指向得空间，包含'\0'字符
+	while(*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char arr1[] = "################";
+	char arr2[] = "hello world";
+	printf("%s\n",my_strcpy(arr1,arr2));
+}*/
+
+//int main()
+//{
+//	int a,b,c;
+//	int arr[10] = {0};
+//	for(a=1;a<10;a++)
+//	{
+//		for(b=1;b<=a;b++)
+//		{
+//			printf("%d*%d=%-3d",a,b,a*b);
+//		}
+//		printf("\n");
+//	}
+//	for(c=0;c<50;c++)
+//	{
+//		printf("haha\n");
+//	}
+//	for(a=0;a<10;a++)
+//	{
+//		arr[a] = a;
+//	}
+//	return 0;
+//}
+
+
+//void test(void)
+//{
+//	printf("haha\n");
+//}
+//int main()
+//{
+//	test(10);
+//	return 0;
+//}
+
+//int my_strlen(const char* str)
+//{
+//	int count = 0;
+//	assert(str != NULL);                             
+//	while(*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	int len = my_strlen(arr);
+//	printf("%d\n",len);
+//	return 0;
+//}
