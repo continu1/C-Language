@@ -1,0 +1,37 @@
+#include <stdio.h>
+//自定义数据类型--枚举(把可能的值一一列举)
+
+
+
+enum Day//星期
+{
+	//枚举的可能取值---(枚举常量)
+	Mon = 8,  //8
+	Tues,     //9
+	Wed,      //10
+	Thur = 20,//20
+	Fri,      //21
+	Sat,      //22
+	Sun       //23
+};
+enum Sex
+{
+	MALE,   //0
+	FEMALE, //1
+	SECRET  //2
+};
+enum Color
+{
+	RED = 2,     //2
+	GREEN = 5,   //5
+	BLUE = 9     //9
+};
+int main()
+{
+	enum Day d1 = Sun;
+	enum Sex s1 = MALE;
+	enum Color c1 = RED;
+	printf("%d %d %d\n",MALE,FEMALE,SECRET);
+	printf("%d %d %d\n",RED,GREEN,BLUE);
+	printf("%d %d %d %d %d %d %d\n",Mon,Tues,Wed,Thur,Fri,Sat,Sun);
+}
