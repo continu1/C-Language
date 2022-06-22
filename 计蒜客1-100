@@ -1,0 +1,1183 @@
+//T1072   药房管理
+//T1048   简单计算器
+//T1072   药房管理
+//T1073   正常血压
+
+
+
+//T1001   计算A+B（新手教程）
+//#include <stdio.h>
+//int main()
+//{
+//    int A,B;
+//    scanf("%d%d",&A,&B);
+//    printf("%d",A+B);
+//    return 0;    
+//}
+
+
+//T1002   输出马里奥
+//#include <stdio.h>
+//int main()
+//{
+//    printf("        ********\n       ************\n       ####....#.\n     #..###.....##....\n     ###.......######\n        ...........\n       ##*#######\n    ####*******######\n   ...#***.****.*###....\n   ....**********##.....\n   ....****    *****....\n     ####        ####\n   ######        ######\n");
+//    return 0;
+//}
+
+
+//T1003   输出字符菱形
+//	#include <stdio.h>
+//int main()
+//{
+//    char ch;
+//    scanf("%c",&ch);
+//    printf("  %c\n %c%c%c\n%c%c%c%c%c\n %c%c%c\n  %c\n",ch,ch,ch,ch,ch,ch,ch,ch,ch,ch,ch,ch,ch,ch,ch);
+//    return 0;
+//}
+
+
+//T1004   输出Hello, World!
+//#include <stdio.h>
+//int main()
+//{
+//    printf("Hello, World!");
+//    return 0;
+//}
+
+
+//T1005   输出字符三角形
+//#include <stdio.h>
+//int main()
+//{
+//    char ch;
+//    scanf("%c",&ch);
+//    printf("  %c\n",ch);
+//    printf(" %c%c%c\n",ch,ch,ch);
+//    printf("%c%c%c%c%c\n",ch,ch,ch,ch,ch);
+//    return 0;
+//}
+
+
+//T1006   对齐输出
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c;
+//    scanf("%d%d%d",&a,&b,&c);
+//    printf("%8d%8d%8d",a,b,c);
+//    return 0;
+//}
+
+
+//T1007   整型与布尔型的转换
+//#include <stdio.h>
+//int main()
+//{
+//    int k;
+//    scanf("%d",&k);
+//    if(k!=0)
+//        printf("1");
+//    else
+//        printf("0");
+//    return 0;
+//}
+
+
+//T1008   打印字符
+//#include <stdio.h>
+//int main()
+//{
+//    int k;
+//    scanf("%d",&k);
+//    printf("%c",k);
+//    return 0;
+//}
+
+
+//T1009   等差数列末项计算
+//#include <stdio.h>
+//int main()
+//{
+//    int a1,a2,n;
+//    scanf("%d%d%d",&a1,&a2,&n);
+//    n--;
+//    printf("%d",a1+n*(a2-a1));
+//    return 0;
+//}
+
+
+//T1010   计算线段长度
+//#include <stdio.h>
+//#include <math.h>
+//int main()
+//{
+//    double xa,ya,xb,yb;
+//    scanf("%lf%lf%lf%lf",&xa,&ya,&xb,&yb);
+//    printf("%0.3lf",sqrt((xa-xb)*(xa-xb)+(ya-yb)*(ya-yb)));
+//return 0;
+//}
+
+
+//T1011   反向输出一个三位数
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    printf("%d%d%d",n%10,n/10-((n/100)*10),n/100);
+//    return 0;
+//}
+
+
+//T1012   A*B问题
+//#include <stdio.h>
+//int main()
+//{
+//    long long A,B;
+//    scanf("%lld %lld",&A,&B);
+//    A = A*B;
+//    printf("%lld",A);
+//    return 0;
+//}
+
+
+//T1013   输出第二个整数
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c;
+//    scanf("%d%d%d",&a,&b,&c);
+//    printf("%d",b);
+//    return 0; 
+//}
+
+
+//T1014   输出保留3位小数的浮点数
+//#include <stdio.h>
+//int main()
+//{
+//    double a;
+//    scanf("%lf",&a);
+//    printf("%.3lf",a);
+//    return 0;
+//}
+
+
+//T1015   输出保留12位小数的浮点数
+//#include <stdio.h>
+//int main()
+//{
+//    double tmp;
+//    scanf("%lf",&tmp);
+//    printf("%.12f",tmp);
+//    return 0;
+//}
+
+
+//T1016   打印ASCII码
+//#include <stdio.h>
+//int main()
+//{
+//    char c;
+//    scanf("%c",&c);
+//    printf("%d",c);
+//    return 0;
+//}
+
+
+//T1017   计算(a+b)*c的值
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c;
+//    scanf("%d%d%d",&a,&b,&c);
+//    printf("%d",(a+b)*c);
+//    return 0;
+//}
+
+
+//T1018   计算(a+b)/c的值
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c;
+//    scanf("%d%d%d",&a,&b,&c);
+//    printf("%d",(a+b)/c);
+//    return 0;
+//}
+
+
+//T1019   带余除法
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b;
+//    scanf("%d%d",&a,&b);
+//    printf("%d %d",a/b,a%b);
+//    return 0;
+//}
+
+
+//T1020   计算分数的浮点数值
+//#include <stdio.h>
+//int main()
+//{
+//    double a,b,c;
+//    scanf("%lf %lf",&a,&b);
+//    printf("%.9lf\n",a/b);
+//    return 0;
+//}
+
+
+//T1021   甲流疫情死亡率
+//#include <stdio.h>
+//int main()
+//{
+//    double a,b;
+//    double k;
+//    scanf("%lf %lf",&a,&b);
+//    k = b/a;
+//    k *= 100;
+//    printf("%.3lf%%",k);
+//    return 0;
+//}
+
+
+//T1022   计算多项式的值
+//#include <stdio.h>
+//int main()
+//{
+//    double x,a,b,c,d;
+//    scanf("%lf %lf %lf %lf %lf",&x,&a,&b,&c,&d);
+//    a = a*x*x*x;
+//    b = b*x*x;
+//    c = c*x;
+//    printf("%.7f",a+b+c+d);
+//    return 0;
+//}
+
+
+//T1023   温度表达转化
+//#include <stdio.h>
+//int main()
+//{
+//    double k;
+//    scanf("%lf",&k);
+//    k = 5*(k-32);
+//    printf("%.5f",k/9);
+//    return 0;
+//}
+
+
+//T1024   与圆相关的计算
+//#include <stdio.h>
+//int main()
+//{
+//    double pai = 3.14159;
+//    double r;
+//    scanf("%lf",&r);
+//    printf("%.4lf %.4lf %.4lf",2*r,2*r*pai,pai*r*r);
+//    return 0;
+//}
+
+
+//T1025   计算浮点数相除的余数
+//#include <stdio.h>
+//int main()
+//{
+//    double a,b;
+//    int k;
+//    scanf("%lf %lf",&a,&b);
+//    k = a/b;
+//    printf("%lf",a-k*b);
+//    return 0;
+//}
+
+
+//T1026   计算球的体积
+//#include <stdio.h>
+//#include <math.h>
+//int main()
+//{
+//    double r;
+//    scanf("%lf",&r);
+//    printf("%.2lf",4.0/3*3.14*pow(r,3));
+//    return 0;
+//}
+
+
+//T1027   大象喝水
+//#include <stdio.h>
+//int main()
+//{
+//    double r,h,tmp;
+//    scanf("%lf %lf",&h,&r);
+//    tmp = 20000/(3.14159*r*r*h);
+//    if(tmp-(int)tmp > 0)
+//    {
+//        printf("%d",(int)tmp+1);
+//    }
+//   else
+//    {
+//        printf("%.0lf",tmp);
+//    }
+//    return 0;
+//}
+
+
+//T1028   苹果和虫子
+//#include <stdio.h>
+//int main()
+//{
+//    int n,x,y;
+//    scanf("%d %d %d",&n,&x,&y);
+//    if(y%x != 0)
+//    {
+//        printf("%d",n-1-y/x);
+//    }
+//    else
+//    {
+//        printf("%d",n-y/x);
+//    }
+//    return 0;
+//}
+
+
+//T1029   计算2的幂
+//#include <stdio.h>
+//#include <math.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    n = pow(2,n);
+//    printf("%d",n);
+//    return 0;
+//}
+
+
+//T1030   判断数正负
+//#include <stdio.h>
+//int main()
+//{
+//    int N;
+//    scanf("%d",&N);
+//    if(N>0)
+//    {
+//        printf("positive");
+//    }
+//    else if(N == 0)
+//    {
+//        printf("zero");
+//    }
+//    else
+//    {
+//        printf("negative");
+//    }
+//    return 0;
+//}
+
+
+//T1031   输出绝对值
+//#include <stdio.h>
+//int main()
+//{
+//    double a;
+//    scanf("%lf",&a);
+//    if(a < 0)
+//    {
+//        printf("%.2lf",-a);
+//    }
+//    else
+//    {
+//        printf("%.2lf",a);
+//    }
+//    return 0;
+//}
+
+
+//T1032   奇偶数判断
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    if(n%2 == 0)//偶数
+//    {
+//        printf("even");
+//    }
+//    else
+//    {
+//        printf("odd");
+//    }
+//    return 0;
+//}
+
+
+//T1033   奇偶ASCII值判断
+//#include <stdio.h>
+//int main()
+//{
+//    char ch;
+//    scanf("%c",&ch);
+//    if((int)ch % 2 == 0)//偶数
+//    {
+//        printf("NO");
+//    }
+//    else
+//    {
+//        printf("YES");
+//    }
+//    return 0;
+//}
+
+
+//T1034   整数大小比较
+//#include <stdio.h>
+//int main()
+//{
+//    long long x,y;
+//    scanf("%lld %lld",&x,&y);
+//    if(x>y)
+//        printf(">");
+//    else if(x == y)
+//        printf("=");
+//    else if(x<y)
+//        printf("<");
+//    return 0;
+//}
+
+
+//T1035   判断是否为两位数
+//#include <stdio.h>
+//int main()
+//{
+//    int a;
+//    scanf("%d",&a);
+//    if(100>a && a>9)
+//        printf("1");
+//    else
+//        printf("0");
+//    return 0;
+//}
+
+
+//T1036   收集瓶盖赢大奖
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b;
+//    scanf("%d %d",&a,&b);
+//    if(a>=10 || b>=20)
+//        printf("1");
+//    else
+//        printf("0");
+//    return 0;
+//}
+
+
+//T1037   判断一个数能否同时被3和5整除
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    if(n%3 == 0 && n%5 == 0)
+//        printf("YES");
+//    else
+//        printf("NO");
+//    return 0;
+//}
+
+
+//T1038   判断能否被3，5，7整除
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    if(n%3 == 0)
+//        printf("3 ");
+//    if(n%5 == 0)
+//        printf("5 ");
+//    if(n%7 == 0)
+//        printf("7");
+//    if(n%3 != 0 && n%5 != 0 && n%7 != 0)
+//        printf("n");
+//    return 0;
+//}
+
+
+//T1039   小蒜蒜的成绩
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b;
+//    scanf("%d %d",&a,&b);
+//    if(((a>60)&&(b<60)) || ((a<60)&&(b>60)))
+//       printf("1");
+//    else
+//       printf("0");
+//    return 0;
+//}
+
+
+//T1040   蒜头君赴约会
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    if(n==1 || n== 3 || n==5)
+//        printf("NO");
+//    else
+//        printf("YES");
+//    return 0;
+//}
+
+
+//T1041   蒜头君上班
+//#include <stdio.h>
+//int main()
+//{
+//    int x;
+//    scanf("%d",&x);
+//    //50+x/3==x/1.2(时间相同) --> x==100
+//    if(x>100)
+//        printf("Bike");
+//    else if(x==100)
+//        printf("All");
+//    else if(x<100)
+//        printf("Walk");
+//    return 0;
+//}
+
+
+//T1042   分段函数
+//#include <stdio.h>
+//int main()
+//{
+//    double a;
+//    scanf("%lf",&a);
+//    if(a>=0 && a<5)
+//        printf("%.3lf",2.5-a);
+//    else if(a>=5 && a<10)
+//        printf("%.3lf",2-1.5*(a-3)*(a-3));
+//    else if(a>=10 && a<20)
+//        printf("%.3lf",a/2-1.5);
+//    return 0;
+//}
+
+
+//T1043   计算邮资
+//#include <stdio.h>
+//int main()
+//{
+//    int weight,money=8;
+//    char type;
+//    scanf("%d %c",&weight,&type);
+//    weight -= 1000;
+//    while(weight>0)
+//    {
+//        weight -= 500;
+//        money += 4;
+//    }
+//    if(type == 'y')
+//        printf("%d",money+5);
+//    else if(type == 'n')
+//        printf("%d",money);
+//    return 0;
+//}
+
+
+//T1044   最大数输出
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c;
+//    scanf("%d%d%d",&a,&b,&c);
+//    if(a<b)
+//        a = b;//a>b
+//    if(c>a)
+//        a = c;//a>c
+//    printf("%d",a);
+//    return 0;
+//}
+
+
+//T1045   三角形判断
+//#include <stdio.h>
+//int main()
+//{
+//    int a,b,c,tmp;
+//    scanf("%d%d%d",&a,&b,&c);
+//    if(a<b)
+//    {
+//        tmp = a;
+//        a = b;//a>b
+//        b = tmp;
+//    }
+//    if(c>a)
+//    {
+//        tmp = a;
+//        a = c;//a>c
+//        c = tmp;
+//    }
+//    if(b+c>a)
+//        printf("yes");
+//    else
+//        printf("no");
+//    return 0;
+//}
+
+
+//T1046   判断闰年
+//#include <stdio.h>
+//int main()
+//{
+//    int a;
+//    scanf("%d",&a);
+//    if((a%4 == 0 && a%100 != 0)  ||  a%400 == 0)
+//    {
+//        printf("Y");
+//    }
+//    else
+//    {
+//        printf("N");
+//    }
+//    return 0;
+//}
+
+
+//T1047   点和正方形的关系
+//#include <stdio.h>
+//int main()
+//{
+//    int x,y;
+//    scanf("%d %d",&x,&y);
+//    if((x>=-1 && x<=1) && (y>=-1 && y<=1))
+//        printf("yes");
+//    else
+//        printf("no");
+//    return 0; 
+//}
+
+
+//T1049   苹果和虫子2
+//#include <stdio.h>
+//int main()
+//{
+//    int n,x,y;
+//    scanf("%d%d%d",&n,&x,&y);
+//    if((y/x >= n-1 && y%x != 0)  || (y/x >= n))
+//        printf("0");
+//    else if(y%x == 0)
+//        printf("%d",n-y/x);
+//    else if(y%x != 0)
+//        printf("%d",n-1-y/x);
+//    return 0;
+//}
+
+
+//T1050   求平均年龄
+//#include <stdio.h>
+//int main()
+//{
+//    int n,tmp;
+//    double k = 0,arr[100] = {0};
+//    scanf("%d",&n);
+//    tmp = n;
+//    while(n)
+//    {
+//        scanf("%lf",&arr[n-1]);
+//        k = k + arr[n-1];
+//        n--;
+//    }
+//    printf("%.2lf",k/tmp);
+//    return 0;
+//}
+
+
+//T1051   财务管理
+//#include <stdio.h>
+//int main()
+//{
+//    double  k = 0,arr[12] = {0};
+//    int i = 12;
+//    for(i=0;i<12;i++)
+//    {
+//        scanf("%lf",&arr[i]);
+//        k = k + arr[i];
+//    }
+//    printf("$%.2lf",k/12);
+//    return 0;
+//}
+
+
+//T1052   均值
+//#include <stdio.h>
+//int main()
+//{
+//    int n,i;
+//    double k,arr[100] = {0};
+//	scanf("%d",&n);
+//    for(i=n,k=0;n>0;)
+//    {
+//        n--;
+//        scanf("%lf",&arr[n]);
+//        k = k + arr[n]/i;
+//    }
+//    printf("%.4lf",k);
+//    return 0;
+//}
+
+
+//T1053   求整数的和与均值
+//#include <stdio.h>
+//int main()
+//{
+//    int arr[10000];;
+//    long long int n,i;
+//    double k = 0;
+//    scanf("%lld",&n);
+//    for(i=0;i<n;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        k = k + arr[i]; 
+//    }
+//    printf("%.0lf ",k);
+//    printf("%.5lf",k/n);
+//    return 0;
+//}
+
+
+//T1054   最高的分数
+//#include <stdio.h>
+//int main()
+//{
+//    int i,n,arr[100] = {0};
+//    scanf("%d",&n);
+//    for(i=0;i<n;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        if(i>0 && arr[0]<arr[i])
+//        {
+//            arr[0] = arr[i];
+//        }
+//    }
+//    printf("%d",arr[0]);
+//    return 0;
+//}
+
+
+//T1055   整数序列的元素最大跨度值
+//#include <stdio.h>
+//int main()
+//{
+//    int max,min,n,i,arr[1000] = {0};
+//    scanf("%d%d",&n,&arr[0]);
+//    max = min = arr[0];
+//    for(i=1;i<n;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        if(max < arr[i])
+//            max = arr[i];
+//        if(min > arr[i])
+//            min = arr[i];
+//    }
+//    printf("%d",max-min);
+//    return 0;
+//}
+
+
+//T1056   蒜厂奖牌计数
+//#include <stdio.h>
+//int main()
+//{
+//    int i,k,n;
+//    int total = 0;
+//    int Au = 0,Ag = 0,Cu = 0;
+//    int arr[17][3];
+//    scanf("%d",&n);
+//    for(i=0;i<n;i++)
+//    {
+//        for(k=0;k<3;k++)
+//        {
+//            scanf("%d",&arr[i][k]);
+//            total = total + arr[i][k];
+//            if(k == 0)
+//                Au = Au + arr[i][k];
+//            if(k == 1)
+//                Ag = Ag + arr[i][k];
+//            if(k == 2)
+//                Cu = Cu + arr[i][k];
+//        }
+//    }
+//    printf("%d %d %d %d",Au,Ag,Cu,total);
+//    return 0;
+//}
+
+
+//T1057   多边形内角和
+//#include <stdio.h>
+//int main()
+//{
+//    int i,n,p,arr[20];
+//    scanf("%d",&n);
+//    p = (n-2)*180;
+//    for(i=0;i<n-1;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        p -= arr[i];
+//    }
+//    printf("%d",p);
+//    return 0;
+//}
+
+
+//T1058   奇数求和
+//#include <stdio.h>
+//int main()
+//{
+//    int n,m,i = 0;
+//    scanf("%d%d",&m,&n);
+//    if(300>=n && n>=m && m>=0)
+//    {
+//        if(m%2 == 0)
+//            m++;
+//        while((n%2 == 0 && n>=m+1) || (n%2 != 0 && n>=m))
+//        {
+//            i += m;
+//            m += 2;
+//        }
+//        printf("%d",i);
+//    }
+//    return 0;
+//}
+
+
+//T1059   满足条件的数累加
+//#include <stdio.h>
+//int main()
+//{
+//    int n,m,k = 0;
+//    scanf("%d%d",&m,&n);
+//    while(n>=m)
+//    {
+//        if(m%17 == 0)
+//		{
+//            k = k + m;
+//		}
+//		m++;
+//    }
+//    printf("%d",k);
+//    return 0;
+//}
+
+
+//T1060   整数的个数
+//#include <stdio.h>
+//int main()
+//{
+//    int n,i;
+//    int arr[100] = {0};
+//    int one = 0,five = 0,ten = 0;
+//    scanf("%d",&n);
+//    for(i=0;i<n;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        if(arr[i] == 1)
+//            one++;
+//        if(arr[i] == 5)
+//            five++;
+//        if(arr[i] == 10)
+//            ten++;
+//    }
+//    printf("%d\n%d\n%d\n",one,five,ten);
+//    return 0;
+//}
+
+
+//T1061   与指定数字相同的数的个数
+//#include <stdio.h>
+//int  main()
+//{
+//    int n,m;
+//    int num = 0,i = 0;
+//    int arr[1000];
+//    scanf("%d%d",&n,&m);
+//    for(i=0;i<n;i++)
+//    {
+//        scanf("%d",&arr[i]);
+//        if(arr[i] == m)
+//          num++;  
+//    }
+//    printf("%d",num);
+//    return 0;
+//}
+
+
+//T1062   乘方计算
+//#include <stdio.h>
+//int main()
+//{
+//    
+//    long long int a,k = 1;
+//    int i,n;
+//    scanf("%lld%d",&a,&n);
+//    for(i=0;i<n;i++)
+//    {
+//        k = k * a;
+//    }
+//    printf("%lld",k);
+//    return 0;
+//}
+
+
+//T1063   人口增长问题
+//#include <stdio.h>
+//int main()
+//{
+//    double x;
+//    int i,n;
+//    scanf("%lf%d",&x,&n);
+//    for(i=0;i<n;i++)
+//    {
+//        x = x*(1.001);
+//    }  
+//    printf("%.4lf",x);
+//    return 0;
+//}
+
+
+//T1064   银行利息
+//#include <stdio.h>
+//int main()
+//{
+//    int Y,i;
+//    double R,M;
+//    scanf("%lf %lf %d",&R,&M,&Y);
+//    R = 1+R/100;
+//    for(i=0;i<Y;i++)
+//    {
+//        M = R*M;
+//    }
+//    printf("%d",(int)M);
+//    return 0;
+//}
+
+
+//T1065   买房子
+//#include <stdio.h>
+//int main()
+//{
+//    int N,tmp,i;
+//    double k,now = 200;
+//    scanf("%d %lf",&N,&k);
+//    k = 1 + k/100;
+//    tmp = N;
+//    for(i=1;i<21;i++)
+//    {
+//        if(N>=now)
+//        {
+//            printf("%d",i);
+//            return 0;
+//        }
+//        N += tmp;
+//        now = now * k;
+//    }
+//    printf("Impossible");
+//    return 0;
+//}
+
+
+//T1066   斐波那契数列
+//#include <stdio.h>
+//int main()
+//{
+//    int a = 1,b = 1,tmp,k;
+//    scanf("%d",&k);
+//    if(k<3)
+//        printf("1");
+//    else
+//    {
+//        k -= 2;
+//        while(k--)
+//        {
+//            tmp = b;
+//            b = a + b;
+//            a = tmp;
+//        }
+//        printf("%d",b);
+//    }
+//    return 0;
+//}
+
+
+//T1067   鸡尾酒疗法
+//#include <stdio.h>
+//int main()
+//{
+//    int n,i;
+//    double tmp,arr1[20][2] = {0};
+//    scanf("%d",&n);
+//    if(n>1 && n<=20)
+//    {
+//        for(i=0;i<n;i++)
+//        {
+//            scanf("%lf %lf",&arr1[i][0],&arr1[i][1]);
+//            tmp = arr1[0][1]/arr1[0][0];
+//            if(i>0)
+//            {
+//                if(tmp > arr1[i][1]/arr1[i][0]+0.05)
+//                    printf("worse\n");
+//                else if(tmp+0.05 < arr1[i][1]/arr1[i][0])
+//                    printf("better\n");
+//                else
+//                    printf("same\n");
+//            }
+//        }
+//    }
+//    return 0;
+//}
+
+
+//T1069   球弹跳高度的计算
+//#include <stdio.h>
+//int main()
+//{
+//    double h,num;
+//    int i;
+//    scanf("%lf",&h);
+//    num = h;
+//    for(i=0;i<10;i++)
+//    {
+//        num += h;
+//        h /= 2;
+//    }
+//    printf("%g %g",num-2*h,h);
+//    return 0;
+//}
+
+
+//T1070   角谷猜想
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    scanf("%d",&n);
+//    while(1)
+//    {
+//        if(n == 1)
+//        {
+//            printf("End");
+//            break;
+//        }
+//        if(n%2 != 0)
+//        {
+//            printf("%d*3+1=%d\n",n,n*3+1);
+//            n = n*3+1;
+//        }
+//        else if(n%2 == 0)
+//        {
+//            printf("%d/2=%d\n",n,n/2);
+//            n /= 2;
+//        }
+//    }
+//    return 0;
+//}
+
+
+//T1071   计分程序
+//#include <stdio.h>
+//int main()
+//{
+//    int n;
+//    while(scanf("%d",&n) != EOF)
+//    {
+//        if(n<11)
+//            n = 6*n;
+//        else if(n>=11 && n<21)
+//            n = 60+2*(n-10);
+//        else if(n>=21 && n<41)
+//            n = 80+(n-20);
+//        else if(n>=40)
+//            n = 100;
+//        printf("%d\n",n);
+//    }
+//    return 0;
+//}
+
+
+//T1072   药房管理
+//#include <stdio.h>
+//int main()
+//{
+//    int m,n,arr[100] = {0};
+//    int i,k,tmp;
+//    scanf("%d%d",&m,&n);
+//    for(i=0;i<n;i++)//输入:
+//    {
+//        scanf("%d",&arr[i]);
+//    }
+//    for(i=0;i<n-1;i++)//整理:
+//    {
+//        for(k=0;k<n-1-i;k++)//最大arr[n-1]
+//        {
+//            if(arr[k] > arr[k+1])//右边最大
+//            {
+//                tmp = arr[k+1];
+//                arr[k+1] = arr[k];
+//                arr[k] = tmp;
+//            }
+//        }
+//    }
+//    i = 0;
+//    while(1)//判断:
+//    {
+//        if(i==n)
+//            break;
+//        m -= arr[i];
+//        if(m<0)
+//            break;
+//        i++;
+//    }
+//    printf("%d",n-i);
+//    return 0;
+//}
+
+
+//T1074   统计满足条件的4位数个数
+//#include <stdio.h>
+//int main()
+//{
+//    int n,i,num,max = 0;
+//    int a,b,c,d;//num = abcd;
+//    scanf("%d",&n);
+//    for(i=0;i<n;i++)
+//    {
+//        scanf("%d",&num);
+//        a = num/1000;
+//        b = ((num%1000) - (num%100))/100;
+//        c = (num%100)/10;
+//        d = num%10;
+//        if(d-a-b-c>0)
+//            max++;
+//    }
+//    printf("%d",max);
+//    return 0;
+//}
+
+
+//T1075   0与1
+//#include <stdio.h>
+//int main()
+//{
+//    int k;
+//    scanf("%d",&k);
+//    if(k==1)
+//        printf("0");
+//    else
+//        printf("1");
+//    return 0;
+//}
