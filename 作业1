@@ -496,3 +496,173 @@ int main()
 //	strcat(arr1,arr2);
 //	printf("%s\n",arr1);
 //}
+
+1.
+#include <stdio.h>
+int main()
+{
+	int a = 0, b = 0;
+	int tmp = 0;
+	scanf_s("%d%d", &a, &b);
+	if (b > a)
+	{
+		tmp = b;
+		b = a;
+		a = tmp;
+	}
+	//最小公倍数  最大公约数
+	if (a%b == 0)
+		printf("最小公倍数:%d \n最大公约数:%d", a / b, b);
+	else
+	{
+		for (int i = b; i >0; i--)
+		{
+			if (a%i == 0 && b%i == 0)
+			{
+				printf("最小公倍数:%d \n最大公约数:%d", a*b / i, i);
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+2.
+#include <stdio.h>
+int main()
+{
+	double len = 0;
+	int day = 0;
+	scanf_s("%lf%d", &len, &day);
+	while (day--)
+		len /= 2;
+	printf("length = %lf", len);
+	return 0;
+}
+
+3.
+#include <stdio.h>
+int main()
+{
+	int math1 = 0, math2 = 0, English = 0;
+	scanf_s("%d%d%d", &math1, &English, &math2);
+	printf("%.2lf", (math1 * 5 + English*1.5 + math2*3.5) / 10.0);
+	return 0;
+}
+
+***************************************************************************************************************************************************
+4.蛇形方阵
+#include <stdio.h>
+int main()
+{
+	int n = 10;
+	int cnt = 1;
+	int x = 0, y = 0;
+	int arr[20][20] = { 0 };
+	scanf_s("%d", &n);
+	for (int i = 0; i < n*n; i++)
+	{
+
+		for (int x = 0 + i; x <= n - i - 1; x++)
+			arr[i][x] = cnt++;
+		for (int y = i + 1; y <= n - i - 1; y++)
+			arr[y][n - i - 1] = cnt++;
+		for (int x = n - i - 2; x >= i; x--)
+			arr[n - i - 1][x] = cnt++;
+		for (int y = n - i - 2; y >= i + 1; y--)
+			arr[y][i] = cnt++;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%5d", arr[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+
+#include <stdio.h>
+int main()
+{
+	int n = 0;
+	int cnt = 1;
+	int x = 0, y = 0;
+	int arr[20][20] = { 0 };
+	scanf_s("%d", &n);
+	while (cnt < n*n)
+	{
+		while (y < n - 1 && !arr[x][y+1])
+			arr[x][y++] = cnt++;
+		while (x < n - 1 && !arr[x+1][y])
+			arr[x++][y] = cnt++;
+		while (y > 0 && !arr[x][y-1])
+			arr[x][y--] = cnt++;
+		while (x>0 && !arr[x][y])
+			arr[x--][y] = cnt++;
+		x++;
+		y++;
+	}
+	if (n % 2 == 1)
+		arr[x][y] = n*n;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%5d", arr[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+***************************************************************************************************************************************************
+
+5.
+#include <stdio.h>
+int main()
+{
+	int n = 0;
+	int a = 0;
+	int b = 0;
+	scanf_s("%d", &n);
+	a = n / 100;
+	b = n % 100;
+	printf("%d ", a + b);
+	printf("%d ", a - b);
+	printf("%d ", a * b);
+	printf("%lf ", a / (b/1.0));
+	printf("%d ", a % b);
+	return 0;
+}
+
+6.
+#include <stdio.h>
+#include <limits.h>
+void printf_bin(int num)
+{
+	int i, j, k;
+	unsigned char *p = (unsigned char*)&num + 3;//p先指向num后面第3个字节的地址，即num的最高位字节地址
+
+	for (i = 0; i < 4; i++) //依次处理4个字节(32位）
+	{
+		j = *(p - i); //取每个字节的首地址，从高位字节到低位字节，即p p-1 p-2 p-3地址处
+		for (int k = 7; k >= 0; k--) //处理每个字节的8个位，注意字节内部的二进制数是按照人的习惯存储！
+		{
+			if (j & (1 << k))//1左移k位，与单前的字节内容j进行或运算，如k=7时，00000000&10000000=0 ->该字节的最高位为0
+				printf("1");
+			else
+				printf("0");
+		}
+		printf(" ");//每8位加个空格，方便查看
+	}
+	printf("\r\n");
+}
+int main()
+{
+	int n = 0;
+	scanf_s("%d", &n);
+	printf_bin(n);
+	return 0;
+}
