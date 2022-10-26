@@ -1,0 +1,247 @@
+/*
+   扫雷游戏:
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <easyx.h>
+#define ROW 10
+#define COL 10
+#define IMGW 40
+
+void initMap(int map[ROW][COL]);
+void drawMap(int map[ROW][COL], IMAGE img[]);
+void mouseEvent(int map[ROW][COL]);
+void openNull(int map[ROW][COL], int row, int col);
+void judge(int mao[ROW][COL], int row, int col);
+void showMap(int map[ROW][COL])
+{
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int k = 0; k < COL; k++)
+		{
+			printf("%-2d ", map[i][k]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+bool isOver = false;         //点到雷结束标记
+
+int main()
+{
+	//创建图形窗口
+	initgraph(ROW * IMGW,COL * IMGW,EX_SHOWCONSOLE);
+
+	//设置随机数种子:
+	srand((unsigned)time(NULL));
+
+	//定义游戏地图:
+	int map[ROW][COL] = { 0 };
+	//初始化数据
+	initMap(map);
+	//把数据转成对应的图形界面
+	IMAGE img[12];  //定义图片数组
+	//加载图片
+	for (int i = 0; i < 12; i++)
+	{
+		char fileName[50] = { 0 };
+		sprintf_s(fileName, "./images/%d.jpg", i);
+		loadimage(img + i, fileName, IMGW, IMGW);
+		putimage(i*IMGW, 0, img + i);
+	}
+	//getchar();
+	while (true)
+	{
+		mouseEvent(map);
+		drawMap(map, img);
+		if (isOver)
+		{
+			int ret = MessageBox(GetHWnd(), "踩雷了,再来一把?", "hit", MB_OKCANCEL);
+			if (ret == IDOK)
+			{
+				initMap(map);
+				showMap(map);
+				isOver = false;
+			}
+			else if (ret == IDCANCEL)
+			{
+				exit(666);
+			}
+		}
+	}
+		showMap(map);
+
+
+		//getchar();
+		return 0;
+}
+
+
+void initMap(int map[ROW][COL])
+{
+	//把map清零
+	memset(map, 0, ROW*COL*sizeof(int));
+
+	//给地图里面随机埋10个雷:      雷用-1表示
+	for (int i = 0; i < 10;)
+	{
+		int r = rand() % ROW;     //[0,10)
+		int c = rand() % COL;
+		if (map[r][c] == 0)
+		{
+			map[r][c] = -1;
+			i++;                 //只有成功设置了雷,我的计数才会自增
+		}
+
+	 }
+
+
+	//雷所在的九宫格所有的格子的数值加一    雷除外
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int k = 0; k < COL; k++)
+		{
+			if (map[i][k] == -1)
+			{
+				//遍历雷所在的九宫格
+				for (int r = i - 1; r <= i + 1; r++)
+				{
+					for (int c = k - 1; c <= k + 1; c++)
+					{
+						//注意数组越界问题
+						if ((r >= 0 && r < ROW && c >= 0 && c < COL) && map[r][c] != -1)
+						{
+							map[r][c]++;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//把所有的格子都用空白图片盖起来,给每个格子都加密,比如都加上20
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int k = 0; k < COL; k++)
+		{
+			map[i][k] += 20;
+		}
+	}
+}
+
+void drawMap(int map[ROW][COL], IMAGE img[])
+{
+	//把数组里的数据,转换成对应的图片,贴图贴到图形窗口上面
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int k = 0; k < COL; k++)
+		{
+			//空白格子和数字
+			if (map[i][k] >= 0 && map[i][k] <= 8)
+			{
+				putimage(k*IMGW, i*IMGW, img + map[i][k]);
+			}
+			else if (map[i][k] == -1)
+			{
+				putimage(k*IMGW, i*IMGW, img + 9);
+			}
+			else if (map[i][k] >= 19 && map[i][k] <= 28)
+			{
+				putimage(k*IMGW, i*IMGW, img + 10);
+			}
+		}
+	}
+}
+
+void mouseEvent(int map[ROW][COL])
+{
+	//定义消息结构体 (鼠标消息,按键消息,字符消息)
+	ExMessage msg;
+	//如果有消息就会返回真,并且给msg设置值
+	if (peekmessage(&msg, WH_MOUSE))					//EM_MOUSE
+	{
+		//把鼠标的坐标转成数组的下标
+		int c = msg.x / IMGW;	
+		int r = msg.y / IMGW;
+		if (msg.message == WM_LBUTTONDOWN) //鼠标左键按下
+		{
+			if (map[r][c] >= 19 && map[r][c] <= 28)
+			{
+				map[r][c] -= 20;
+				openNull(map, r, c);
+				judge(map, r, c);
+				showMap(map);
+			}
+		}
+	}
+}
+
+void openNull(int map[ROW][COL], int row, int col)
+{
+	//判断一下当前点击的是不是空白
+	if (map[row][col] == 0)
+	{
+		for (int i = row - 1; i <= row + 1; i++)
+		{
+			for (int k = col - 1; k <= col + 1; k++)
+			{
+				if (map[i][k] >= 19 && map[i][k] <= 28 && (i >= 0 && i < ROW && k >= 0 && k < COL))
+				{
+					map[i][k] -= 20;
+					openNull(map, i, k);
+				}
+			}
+		}
+	}
+}
+
+void judge(int map[ROW][COL], int row, int col)
+{
+	//如果点到了雷,就game over    点一个雷,其他的雷都显示出来
+	if (map[row][col] == -1)
+	{
+		for (int i = 0; i < ROW; i++)
+		{
+			for (int k = 0; k < COL; k++)
+			{
+				if (map[i][k] == 19)
+				{
+					map[i][k] -= 20;
+				}
+			}
+		}
+		isOver = true;
+	}
+
+	//如果没踩到雷且只有10个未开就判定为游戏胜利    (自写
+	int j = 0;
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int k = 0; k < COL; k++)
+		{
+			if (map[i][k] >= 19)
+			{
+				j++;
+			}
+		}
+	}
+	if (j == 10)
+	{
+		MessageBox(GetHWnd(), "你赢了,再来一把?", "hit", MB_OKCANCEL);
+		initMap(map);
+		showMap(map);
+	}
+	//赢了,应该点开的格子都点开了,就赢了
+	/*
+	什么是应该点开的格子?
+
+	if(curOpenGridcnt  ==  ROW*COL  -10)
+	{
+		
+	}
+	点到空白不太好处理,
+
+	*/
+}
+//还未设置右键探测与标旗功能
