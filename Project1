@@ -1,0 +1,220 @@
+/*
+
+	cout语句与cin的使用
+
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << 2 + 4 << endl;
+	cout << "ABCD" << endl;
+	int a = 10, b = 5;
+	cout << a + b << endl;
+	return 0;
+}
+
+#include <iostream>
+#include <iomanip>//格式函数的头文件
+using namespace std;
+int main()
+{
+	cout << 10.0 / 6.0 << endl;
+	//setprecision函数可控制小数的位数且与fixed搭配使用
+	cout << fixed << setprecision(8) << 10.0 / 6.0 << endl;
+	return 0;
+}
+
+#include <iostream>
+#include <bitset>//利用bitset函数将十进制转化为对应的二进制数
+using std::bitset;
+using namespace std;
+int main()
+{
+	int a = 0;
+	cin >> a;
+	bitset<16> b(a);//16表示二进制的位数为16位(bit)
+	//cout不支持转化为二进制数
+	cout << "dec:" << dec << a << endl;//以十进制形式输出参数
+	cout << "hex:" << hex << a << endl;//以十六进制形式输出参数
+	cout << "oct:" << oct << a << endl;//以八进制形式输出参数
+	cout << "The binary of " << b.to_ulong() << " is " << b << endl;//以二进制形式输出参数
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x;
+	float y;
+	cout << "请输入一个整数:" << endl;
+	cin >> x;
+	cout << "这个整数 x= " << x << endl;
+	cout << "请输入一个小数:" << endl;
+	cin >> y;
+	cout << "这个小数 y= " << y << endl;
+	return 0;
+}
+
+
+
+
+
+
+/*
+
+		关于四种常见的数组排列方法:
+		1.冒泡排序法	2.选择排序法	3.插入排序法	4.快速排序法
+		未完待续..............
+
+*/
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+//自写:
+//1.冒泡排序法:
+void my_BubbleSort(int* arr,int sz,char order)
+{
+	//order判断顺序,'Y'为升序,'N'为降序 
+	//sz为要排序的元素个数
+
+	for (int i = 0; i < sz; i++)//排列sz-1次
+	{
+		for (int k = 0; k<sz-1-i; k++)
+		{
+			//升序:
+			if ((arr[k] > arr[k + 1]) && (order == 'Y'))
+			{
+				int tmp = arr[k];
+				arr[k] = arr[k + 1];
+				arr[k + 1] = tmp;
+			}
+
+			//降序:
+			if ((arr[k] < arr[k + 1]) && (order == 'N'))
+			{
+				int tmp = arr[k];
+				arr[k] = arr[k + 1];
+				arr[k + 1] = tmp;
+			}
+		}
+	}
+}
+
+//2.选择排序法:
+void my_SelectSort(int* arr, int sz,char order)
+{
+	for (int j = 0; j < sz - 1; j++)
+	{
+		//顺序排列:(逆序同理)
+		//从起始元素开始(第一个元素),当遇到有元素大于它时,将它与起始元素互换数值,直到遍历完最后一个元素 ------  目的:让起始元素是它及其后面元素的最大元素
+		//将起始元素的后一个元素设为起始元素,重复之前步骤,直到最后一个元素为起始元素
+		for (int i = j;i <sz-1 ; i++)
+		{
+			//把arr[j]与数组中的其他元素对比
+			int begin = arr[j];
+
+
+			//升序:
+			if (order == 'Y')
+			{
+				if (arr[i + 1] < begin)
+				{
+					arr[j] = arr[i + 1];
+					arr[i + 1] = begin;
+				}
+			}
+
+			//降序:
+			if (order == 'N')
+			{
+				if (arr[i + 1] > begin)
+				{
+					arr[j] = arr[i + 1];
+					arr[i + 1] = begin;
+				}
+			}
+		}
+	}
+}
+
+//3.插入排序法:
+void my_LnsertSort(int* arr, int sz,char order)
+{
+	for (int k = 0; k < sz-1; k++)
+	{
+		//不知道为什么arr[k+1]替换排序中的tmp就不能正常排序,虽然在排序时arr[k+1]的值为常量(值不变)？？？？？？？？？？？？？？？？？？？？？？？？？？(疑点
+		int tmp = arr[k + 1];
+		int j = k;
+
+		//从数组的第一个元素开始作为一个有序数组,其后的所有元素作为一个无序数组,一次循环就拿取无序数组的一个元素并将其按大小排列到有序数组里，直到无序数组的元素为0
+		if (order == 'Y')
+		{
+			//升序:
+			if (arr[k] > arr[k + 1])//左边大于右边
+			{
+				while ((tmp < arr[j]) && j >= 0)//j>=0防止越界访问
+					arr[j + 1] = arr[j--];
+				arr[j + 1] = tmp;
+			}
+		}
+		else if (order == 'N')
+		{
+			//降序:
+			if (arr[k] < arr[k + 1])//右边大于左边
+			{
+				while ((tmp > arr[j]) && j >= 0)//j>=0防止越界访问
+					arr[j + 1] = arr[j--];
+				arr[j + 1] = tmp;
+			}
+		}
+	}
+}
+
+//4.快速排序法:
+void my_QuickSort(int* arr, int sz)
+{
+	int ben = arr[0];//将arr[0]作为基准,
+	//大脑过载1000%
+
+}
+
+int main()
+{
+	int arr[200] = { 0 };
+	int i = 0;
+	char ch = 'a';
+	cout << "输入数组的各个元素,当换行时结束:" << endl;
+
+	//输入数组的各个元素:
+	for (i = 0; i < 200; i++)
+	{
+		cin >> arr[i];
+		if (getchar() == '\n')
+			break;
+	}
+	cout << endl << "选择排列的顺序:" << endl << "升序输入Y:" << endl << "降序输入N:" << endl;
+
+	//用ch判断排序顺序:
+	cin >> ch;
+
+	//冒泡排序:
+	//my_BubbleSort(&arr[0], i + 1, ch);
+
+	//2.选择排序:
+	//my_SelectSort(&arr[0], i + 1,ch);
+
+	//3.插入排序:
+	//my_LnsertSort(&arr[0], i + 1,ch);
+
+	//4.快速排序:
+	my_QuickSort(&arr[0], i + 1);
+
+	//输出排列后的样子:
+	for (int j = 0; j <= i; j++)
+		cout << arr[j] << " ";
+	return 0;
+}
